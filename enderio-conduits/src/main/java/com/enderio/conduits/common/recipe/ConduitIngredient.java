@@ -49,7 +49,10 @@ public class ConduitIngredient implements ICustomIngredient {
         }
 
         Holder<Conduit<?>> conduit = stack.get(ConduitComponents.CONDUIT);
-        return this.conduit.value().equals(conduit);
+        if (conduit == null) {
+            return false;
+        }
+        return this.conduit.is(conduit);
     }
 
     @Override
