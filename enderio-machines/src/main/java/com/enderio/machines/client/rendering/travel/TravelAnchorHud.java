@@ -19,6 +19,9 @@ import net.minecraft.world.level.block.Blocks;
 public class TravelAnchorHud implements LayeredDraw.Layer {
     public static final TravelAnchorHud INSTANCE = new TravelAnchorHud();
 
+    private TravelAnchorHud(){
+    }
+
     static final int CURSOR_GAP = 20;
     static final int ITEM_TEXT_GAP = 6;
     static final int ITEM_SIZE = 16;
@@ -28,20 +31,18 @@ public class TravelAnchorHud implements LayeredDraw.Layer {
         Minecraft minecraft = Minecraft.getInstance();
         Player player = minecraft.player;
 
-        Window window = minecraft.getWindow();
-
         if (player == null || !TravelHandler.canBlockTeleport(player)) {
             return;
         }
 
         TravelHandler.getElevatorAnchorTarget(player, Direction.UP)
-            .ifPresent(target -> showElevatorTarget(guiGraphics, minecraft.font, window.getScreenWidth(), window.getScreenHeight(), target, Direction.UP));
+            .ifPresent(target -> showElevatorTarget(guiGraphics, minecraft.font, target, Direction.UP));
 
         TravelHandler.getElevatorAnchorTarget(player, Direction.DOWN)
-            .ifPresent(target -> showElevatorTarget(guiGraphics, minecraft.font, window.getScreenWidth(), window.getScreenHeight(), target, Direction.DOWN));
+            .ifPresent(target -> showElevatorTarget(guiGraphics, minecraft.font, target, Direction.DOWN));
     }
 
-    private static void showElevatorTarget(GuiGraphics guiGraphics, Font font, int screenWidth, int screenHeight, TravelTarget target, Direction direction) {
+    private static void showElevatorTarget(GuiGraphics guiGraphics, Font font, TravelTarget target, Direction direction) {
         String txt = switch (direction) {
             case UP -> "↑";
             case DOWN -> "↓";
@@ -50,8 +51,8 @@ public class TravelAnchorHud implements LayeredDraw.Layer {
             default -> "";
         };
 
-        int centerX = screenWidth / 2;
-        int centerY = screenHeight / 2;
+        int centerX = guiGraphics.guiWidth() / 2;
+        int centerY = guiGraphics.guiHeight() / 2;
 
         if (target instanceof AnchorTravelTarget anchorTarget) {
             String anchorName = anchorTarget.name();
