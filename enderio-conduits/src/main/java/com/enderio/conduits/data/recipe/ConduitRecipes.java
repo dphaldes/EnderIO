@@ -145,63 +145,6 @@ public class ConduitRecipes extends RecipeProvider {
             .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.CONDUIT_BINDER))
             .save(recipeOutput, EnderIOBase.loc("redstone_conduit"));
 
-//        if (Integrations.MEKANISM_INTEGRATION.isPresent()) {
-//            var mekRecipeOutput = recipeOutput.withConditions(new ModLoadedCondition("mekanism"));
-//
-//            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ConduitBlockItem.getStackFor(MekanismIntegration.CHEMICAL, 3))
-//                .pattern("BBB")
-//                .pattern("III")
-//                .pattern("BBB")
-//                .define('B', EIOItems.CONDUIT_BINDER)
-//                .define('I', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(MekanismAPI.MEKANISM_MODID, "basic_pressurized_tube")))
-//                .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.CONDUIT_BINDER))
-//                .save(mekRecipeOutput, EnderIO.loc("mek_basic_pressurized_tube"));
-//
-//            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ConduitBlockItem.getStackFor(MekanismIntegration.CHEMICAL2, 3))
-//                .pattern("BBB")
-//                .pattern("III")
-//                .pattern("BBB")
-//                .define('B', EIOItems.CONDUIT_BINDER)
-//                .define('I', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(MekanismAPI.MEKANISM_MODID, "advanced_pressurized_tube")))
-//                .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.CONDUIT_BINDER))
-//                .save(mekRecipeOutput, EnderIO.loc("mek_advanced_pressurized_tube"));
-//
-//            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ConduitBlockItem.getStackFor(MekanismIntegration.CHEMICAL3, 3))
-//                .pattern("BBB")
-//                .pattern("III")
-//                .pattern("BBB")
-//                .define('B', EIOItems.CONDUIT_BINDER)
-//                .define('I', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(MekanismAPI.MEKANISM_MODID, "elite_pressurized_tube")))
-//                .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.CONDUIT_BINDER))
-//                .save(mekRecipeOutput, EnderIO.loc("mek_elite_pressurized_tube"));
-//
-//            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ConduitBlockItem.getStackFor(MekanismIntegration.CHEMICAL2, 8))
-//                .pattern("CCC")
-//                .pattern("CUC")
-//                .pattern("CCC")
-//                .define('C', ConduitIngredient.of(MekanismIntegration.CHEMICAL.get()))
-//                .define('U', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(MekanismAPI.MEKANISM_MODID, "alloy_infused")))
-//                .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.CONDUIT_BINDER))
-//                .save(mekRecipeOutput, EnderIO.loc("mek_basic_pressurized_tube_upgrade"));
-//
-//            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ConduitBlockItem.getStackFor(MekanismIntegration.CHEMICAL3, 8))
-//                .pattern("CCC")
-//                .pattern("CUC")
-//                .pattern("CCC")
-//                .define('C', ConduitIngredient.of(MekanismIntegration.CHEMICAL2.get()))
-//                .define('U', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(MekanismAPI.MEKANISM_MODID, "alloy_reinforced")))
-//                .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.CONDUIT_BINDER))
-//                .save(mekRecipeOutput, EnderIO.loc("mek_advanced_pressurized_tube_upgrade"));
-//
-//            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ConduitBlockItem.getStackFor(MekanismIntegration.HEAT_TYPE, 3))
-//                .pattern("BBB")
-//                .pattern("III")
-//                .pattern("BBB")
-//                .define('B', EIOItems.CONDUIT_BINDER)
-//                .define('I', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(MekanismAPI.MEKANISM_MODID, "advanced_thermodynamic_conductor")))
-//                .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.CONDUIT_BINDER))
-//                .save(mekRecipeOutput, EnderIO.loc("mek_advanced_thermodynamic_conductor"));
-//        }
     }
 
     private void buildUpgradeRecipes(RecipeOutput recipeOutput) {
